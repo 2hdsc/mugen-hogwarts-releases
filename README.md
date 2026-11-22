@@ -4,17 +4,19 @@ Releases públicas do **launcher** do Hogwarts (`mugen-hogwarts`). Este reposit�
 
 ## Instalar e jogar
 
-1. Baixe o binário do seu sistema na [última Release](https://github.com/2hdsc/mugen-hogwarts-releases/releases/latest):
+1. Baixe o launcher do seu sistema na [última Release](https://github.com/2hdsc/mugen-hogwarts-releases/releases/latest):
    - Linux (x86_64): `mugen-hogwarts-linux-amd64`
-   - Windows: `mugen-hogwarts-windows-amd64.exe`
    - Mac Apple Silicon (M1, M2, M3, M4): `mugen-hogwarts-darwin-arm64`
-2. Instale o jogo. Ele vai para `~/Hogwarts` (Linux e Mac) ou `%LOCALAPPDATA%\Hogwarts` (Windows):
+   - Windows: `mugen-hogwarts-windows-amd64.exe`
+2. Instale e jogue. O jogo vai para `~/Hogwarts` (Linux e Mac) ou `%LOCALAPPDATA%\Hogwarts` (Windows).
 
    **Linux**
    ```bash
+   curl -LO https://github.com/2hdsc/mugen-hogwarts-releases/releases/latest/download/mugen-hogwarts-linux-amd64
    chmod +x mugen-hogwarts-linux-amd64
-   ./mugen-hogwarts-linux-amd64 install          # ou: install --all (todos os personagens)
-   ./mugen-hogwarts-linux-amd64 online --start
+   ./mugen-hogwarts-linux-amd64 install --all     # todos os personagens (sem --all vem só o básico)
+   ./mugen-hogwarts-linux-amd64 online --start    # online: Host/Join no menu Network
+   ~/Hogwarts/hogwarts-linux                      # offline
    ```
    No Ubuntu 22.04 ou mais novo, se faltar alguma biblioteca:
    `sudo apt install libgl1 libgtk-3-0 libasound2 libpulse0 libxss1`
@@ -22,16 +24,20 @@ Releases públicas do **launcher** do Hogwarts (`mugen-hogwarts`). Este reposit�
 
    **Mac (Apple Silicon)**
    ```bash
+   curl -LO https://github.com/2hdsc/mugen-hogwarts-releases/releases/latest/download/mugen-hogwarts-darwin-arm64
    chmod +x mugen-hogwarts-darwin-arm64
    xattr -d com.apple.quarantine mugen-hogwarts-darwin-arm64
-   ./mugen-hogwarts-darwin-arm64 install
-   ./mugen-hogwarts-darwin-arm64 online --start
+   ./mugen-hogwarts-darwin-arm64 install --all
+   ./mugen-hogwarts-darwin-arm64 online --start   # online
+   ~/Hogwarts/hogwarts-mac                        # offline (ou dois cliques em hogwarts-mac no Finder)
    ```
-   Se o macOS ainda bloquear o jogo: Ajustes do Sistema → Privacidade e Segurança → "Abrir mesmo assim".
+   Se o macOS ainda bloquear o jogo: Ajustes do Sistema → Privacidade e Segurança → "Abrir mesmo assim". Mac Intel não é suportado: o Ikemen GO não publica motor para Intel.
 
-   **Windows**: abra o `mugen-hogwarts-windows-amd64.exe` com dois cliques. Ele pergunta se pode instalar e depois abre o jogo. No PowerShell: `.\mugen-hogwarts-windows-amd64.exe install`.
+   **Windows**: abra o `mugen-hogwarts-windows-amd64.exe` com dois cliques. Ele pergunta se pode instalar e depois abre o jogo. Para jogar offline, abra `hogwarts-windows.exe` na pasta do jogo.
 
-3. Mais personagens depois: `mugen-hogwarts update --all` (ou `--pack ID`). Rodar o `install` ou o `update` de novo só baixa o que mudou, e suas configurações em `save/` são mantidas.
+3. Para atualizar, rode `mugen-hogwarts update` (`--all` ou `--pack ID` trazem mais personagens). Ele só baixa o que mudou, e suas configurações em `save/` são mantidas.
+
+Na pasta do jogo, o executável se chama `hogwarts-linux`, `hogwarts-mac` (abre o `Hogwarts.app`) ou `hogwarts-windows.exe`. É o motor oficial do Ikemen GO com outro nome. Instalações antigas ainda têm `Ikemen_GO_Linux`, `I.K.E.M.E.N-Go.app` ou `Ikemen_GO.exe`: o `update` troca para os nomes novos e apaga os antigos.
 
 ## O que vem de onde
 
