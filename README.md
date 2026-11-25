@@ -47,7 +47,7 @@ Instalações feitas até o launcher v0.3.1 em `~/Hogwarts` continuam funcionand
 
 ## O que vem de onde
 
-- O launcher sai neste repositório. Ele também confere se há versão nova (`mugen-hogwarts self-update --check`).
+- O launcher sai neste repositório. Para atualizar, rode `mugen-hogwarts self-update`: ele baixa a versão nova, confere com o `SHA256SUMS` e troca o binário. Já `self-update --check` só consulta. Até a v0.3.2 o `self-update` só mostrava o link; nessas versões, baixe a nova uma vez à mão.
 - O motor [Ikemen GO v1.0.0](https://github.com/ikemen-engine/Ikemen-GO) (MIT), os arquivos do jogo, os packs de personagens e cenários e o manifest ficam no **Cloudflare R2**. O `install` baixa tudo de lá e confere o sha256 de cada arquivo.
 - O código-fonte do jogo e do launcher é privado, em [2hdsc/mugen-hogwarts](https://github.com/2hdsc/mugen-hogwarts).
 - Até a v0.2.0 os binários se chamavam `hogwarts-<sistema>-<arquitetura>`.
