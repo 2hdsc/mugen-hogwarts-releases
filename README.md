@@ -8,7 +8,7 @@ Releases públicas do **launcher** do Hogwarts (`mugen-hogwarts`). Este reposit�
    - Linux (x86_64): `mugen-hogwarts-linux-amd64`
    - Mac Apple Silicon (M1, M2, M3, M4): `mugen-hogwarts-darwin-arm64`
    - Windows: `mugen-hogwarts-windows-amd64.exe`
-2. Instale e jogue. O jogo vai para `~/Hogwarts` (Linux e Mac) ou `%LOCALAPPDATA%\Hogwarts` (Windows).
+2. Instale e jogue. O jogo vai para `~/mugen-hogwarts` (Linux e Mac) ou `%LOCALAPPDATA%\mugen-hogwarts` (Windows).
 
    **Linux**
    ```bash
@@ -16,7 +16,7 @@ Releases públicas do **launcher** do Hogwarts (`mugen-hogwarts`). Este reposit�
    chmod +x mugen-hogwarts-linux-amd64
    ./mugen-hogwarts-linux-amd64 install --all     # todos os personagens (sem --all vem só o básico)
    ./mugen-hogwarts-linux-amd64 online --start    # online: Host/Join no menu Network
-   ~/Hogwarts/hogwarts-linux                      # offline
+   ~/mugen-hogwarts/hogwarts-linux                # offline
    ```
    No Ubuntu 22.04 ou mais novo, se faltar alguma biblioteca:
    `sudo apt install libgl1 libgtk-3-0 libasound2 libpulse0 libxss1`
@@ -29,7 +29,7 @@ Releases públicas do **launcher** do Hogwarts (`mugen-hogwarts`). Este reposit�
    xattr -d com.apple.quarantine mugen-hogwarts-darwin-arm64
    ./mugen-hogwarts-darwin-arm64 install --all
    ./mugen-hogwarts-darwin-arm64 online --start   # online
-   ~/Hogwarts/hogwarts-mac                        # offline (ou dois cliques em hogwarts-mac no Finder)
+   ~/mugen-hogwarts/hogwarts-mac                  # offline (ou dois cliques em hogwarts-mac no Finder)
    ```
    Se o macOS ainda bloquear o jogo: Ajustes do Sistema → Privacidade e Segurança → "Abrir mesmo assim". Mac Intel não é suportado: o Ikemen GO não publica motor para Intel.
 
@@ -37,9 +37,17 @@ Releases públicas do **launcher** do Hogwarts (`mugen-hogwarts`). Este reposit�
 
 3. Para atualizar, rode `mugen-hogwarts update` (`--all` ou `--pack ID` trazem mais personagens). Ele só baixa o que mudou, e suas configurações em `save/` são mantidas.
 
-Na pasta do jogo, o executável se chama `hogwarts-linux`, `hogwarts-mac` (abre o `Hogwarts.app`) ou `hogwarts-windows.exe`.
+4. Para desinstalar, rode `mugen-hogwarts uninstall`. Ele mostra o que vai apagar e pergunta antes (`--yes` pula a pergunta).
+   - Por padrão mantém `save/` (suas configurações e replays). `--purge` apaga a pasta inteira.
+   - O launcher não se apaga sozinho: apague o arquivo `mugen-hogwarts-…` depois.
 
-## Outras informações
+Na pasta do jogo, o executável se chama `hogwarts-linux`, `hogwarts-mac` (abre o `Hogwarts.app`) ou `hogwarts-windows.exe`. É o motor oficial do Ikemen GO com outro nome. Instalações antigas ainda têm `Ikemen_GO_Linux`, `I.K.E.M.E.N-Go.app` ou `Ikemen_GO.exe`: o `update` troca para os nomes novos e apaga os antigos.
+
+Instalações feitas até o launcher v0.3.1 em `~/Hogwarts` continuam funcionando ali: o launcher usa a pasta antiga e mostra como movê-la (`mv ~/Hogwarts ~/mugen-hogwarts`, com o jogo fechado).
+
+## O que vem de onde
 
 - O launcher sai neste repositório. Ele também confere se há versão nova (`mugen-hogwarts self-update --check`).
 - O motor [Ikemen GO v1.0.0](https://github.com/ikemen-engine/Ikemen-GO) (MIT), os arquivos do jogo, os packs de personagens e cenários e o manifest ficam no **Cloudflare R2**. O `install` baixa tudo de lá e confere o sha256 de cada arquivo.
+- O código-fonte do jogo e do launcher é privado, em [2hdsc/mugen-hogwarts](https://github.com/2hdsc/mugen-hogwarts).
+- Até a v0.2.0 os binários se chamavam `hogwarts-<sistema>-<arquitetura>`.
