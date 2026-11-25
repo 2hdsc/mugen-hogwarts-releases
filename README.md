@@ -37,11 +37,9 @@ Releases públicas do **launcher** do Hogwarts (`mugen-hogwarts`). Este reposit�
 
 3. Para atualizar, rode `mugen-hogwarts update` (`--all` ou `--pack ID` trazem mais personagens). Ele só baixa o que mudou, e suas configurações em `save/` são mantidas.
 
-Na pasta do jogo, o executável se chama `hogwarts-linux`, `hogwarts-mac` (abre o `Hogwarts.app`) ou `hogwarts-windows.exe`. É o motor oficial do Ikemen GO com outro nome. Instalações antigas ainda têm `Ikemen_GO_Linux`, `I.K.E.M.E.N-Go.app` ou `Ikemen_GO.exe`: o `update` troca para os nomes novos e apaga os antigos.
+Na pasta do jogo, o executável se chama `hogwarts-linux`, `hogwarts-mac` (abre o `Hogwarts.app`) ou `hogwarts-windows.exe`.
 
-## O que vem de onde
+## Outras informações
 
 - O launcher sai neste repositório. Ele também confere se há versão nova (`mugen-hogwarts self-update --check`).
 - O motor [Ikemen GO v1.0.0](https://github.com/ikemen-engine/Ikemen-GO) (MIT), os arquivos do jogo, os packs de personagens e cenários e o manifest ficam no **Cloudflare R2**. O `install` baixa tudo de lá e confere o sha256 de cada arquivo.
-- O código-fonte do jogo e do launcher é privado, em [2hdsc/mugen-hogwarts](https://github.com/2hdsc/mugen-hogwarts).
-- Até a v0.2.0 os binários se chamavam `hogwarts-<sistema>-<arquitetura>`.
